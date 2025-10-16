@@ -68,3 +68,28 @@ where fkeyid = OBJECT_ID('order details')
 
 
 
+
+
+--Funcion que caclcula el cubo de un numero */
+CREATE FUNCTION dbo.Cubo(@num numeric(12,2))
+
+returns numeric(12,2)
+AS
+
+BEGIN
+return(@num * @num * @num)
+END
+GO
+--ejecucion
+select dbo.cubo(3)
+declare @r numeric (12,2)
+select @r = dbo.cubo(3)
+select @r
+
+
+--nombre y precio del producot al cubo
+
+
+
+select productname, 'precio cubo' = dbo.cubo(unitprice) from products
+
